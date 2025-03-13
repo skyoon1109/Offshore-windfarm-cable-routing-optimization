@@ -3,6 +3,8 @@
 - Considered 2 kinds of topology, "Branch topology" & "Balanced Radial topology"
 
 ## Branched topology
+
+### MIP model
 $$\min \qquad \sum_{(i, j) \in A} \sum_{t \in T} c_{i,\, j}^{t} \, x_{i,\, j}^t + \sum_{k \in V_{0}} a_{k} u_{k}$$ **(1)**
 
 $$\text{s.t.} \qquad \sum_{t \in T} x_{i,\, j}^{t} = y_{i,\, j}, \quad \forall (i, j) \in A $$ **(2)**
@@ -50,6 +52,7 @@ That is, if one of the 9 substation candidates is selected, only one cable enter
 
 
 ## Balanced Radial
+### MIP model
 $$\min \qquad \sum_{(i, j) \in A} \sum_{t \in T} c_{i,\, j}^{t} \, x_{i,\, j}^t + \sum_{k \in V_{0}} a_{k} u_{k}$$ **(1)**
 
 $$\text{s.t.} \qquad \sum_{t \in T} x_{i,\, j}^{t} = y_{i,\, j}, \quad \forall (i, j) \in A$$ **(2)**
