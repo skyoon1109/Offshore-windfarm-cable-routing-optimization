@@ -83,7 +83,7 @@ $$f_{i,\, j} \ge 0, \quad (i, j) \in A$$ **(14)**
 
 $$u_{k} \in \{0, 1 \}, \quad k \in V_{0}$$ **(15)**
 
-$$a_k = 180 \times dist(k,\ onshore\_sub), \quad k \in V_{0}$$ **(16)**
+$$a_k = 180 \times dist(k,\ onshore \ sub), \quad k \in V_{0}$$ **(16)**
 
 $$s = \text{(number of strings)}$$ **(17)**
 
