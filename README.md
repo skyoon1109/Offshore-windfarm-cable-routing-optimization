@@ -2,9 +2,9 @@
 - Optimized cable routing for large offshore wind farms with Mixed‑Integer Programming (MIP), using Gurobi.
 - Considered 2 kinds of topology, "Branch topology" & "Balanced Radial topology"
 
-## Branched topology
+## 1. Branched topology
 
-### MIP model
+### 1.1 MIP model
 $$\min \qquad \sum_{(i, j) \in A} \sum_{t \in T} c_{i,\, j}^{t} \, x_{i,\, j}^t + \sum_{k \in V_{0}} a_{k} u_{k}$$ **(1)**
 
 $$\text{s.t.} \qquad \sum_{t \in T} x_{i,\, j}^{t} = y_{i,\, j}, \quad \forall (i, j) \in A $$ **(2)**
@@ -32,13 +32,13 @@ $$u_{k} \in \{0, 1 \}, \quad k \in V_{0}  $$ **(12)**
 
 $$a_k = 180 \times dist(k,\ onshore\_sub), \quad k \in V_{0} $$ **(13)**
 
-### Decision Variables
+### 1.2 Decision Variables
 $x^t_{i,j}$: 1 if edge $(i, j)$ is connected with cable type $t$, 0 otherwise.  
 $y_{i,j}$: $\sum_{t \in T} x^t_{i,j}$, a variable that indicates whether edge $(i, j)$ is connected regardless of cable type.  
 $f_{i,j}$: Represents the energy flow from node $i$ to node $j$.  
 $u_k$: A variable that indicates whether each of the 9 offshore substation candidates is selected. That is, if one substation is selected, its $u_k$ value is 1, otherwise 0  
 
-### Constraints  
+### 1.3 Constraints  
 (1): The objective function aims to minimize the cable cost.  
 Here, $\sum_{(i,j) \in A} \sum_{t \in T} c^t_{i,j} x^t_{i,j}$ represents the cost between turbines and offshore substations, and $\sum_{k \in V_0} a_k u_k$ represents the cost between offshore substations and onshore substations.  
 (2): Defines the $y_{i,j}$ variable and constrains that only one cable type can be selected.  
@@ -51,8 +51,8 @@ Here, $\sum_{(i,j) \in A} \sum_{t \in T} c^t_{i,j} x^t_{i,j}$ represents the cos
 That is, if one of the 9 substation candidates is selected, only one cable enters that substation, and there are no cables entering other substation candidates.  
 
 
-## Balanced Radial
-### MIP model
+## 2. Balanced Radial
+### 2.1 MIP model
 $$\min \qquad \sum_{(i, j) \in A} \sum_{t \in T} c_{i,\, j}^{t} \, x_{i,\, j}^t + \sum_{k \in V_{0}} a_{k} u_{k}$$ **(1)**
 
 $$\text{s.t.} \qquad \sum_{t \in T} x_{i,\, j}^{t} = y_{i,\, j}, \quad \forall (i, j) \in A$$ **(2)**
@@ -86,3 +86,12 @@ $$u_{k} \in \{0, 1 \}, \quad k \in V_{0}$$ **(15)**
 $$a_k = 180 \times dist(k,\ onshore\_sub), \quad k \in V_{0}$$ **(16)**
 
 $$s = \text{(number of strings)}$$ **(17)**
+
+### 2.2 Decision Variables
+The decision variables are the same as in the Branched model.  
+
+### 2.3 Constraints
+(1) ~ (8) are the same as in the Branched model.  
+(9): A constraint ensuring that $s$ cables enter the selected offshore substation candidate.  
+(10): A constraint ensuring that the number of incoming cables to each turbine is at most 1.  
+(11): A constraint ensuring that the flow from node $i$ to $j$ does not exceed $\lceil \frac{|V_T|}{s} \rceil$. Here, $\lceil \frac{|V_T|}{s} \rceil$ represents the number of turbines connected in one string.  
