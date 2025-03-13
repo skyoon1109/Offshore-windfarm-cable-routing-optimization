@@ -30,5 +30,11 @@ $$u_{k} \in \{0, 1 \}, \quad k \in V_{0}  $$ **(12)**
 
 $$a_k = 180 \times dist(k,\ onshore\_sub), \quad k \in V_{0} $$ **(13)**
 
+### Decision Variables
+$x^t_{i,j}$: 1 if edge $(i, j)$ is connected with cable type $t$, 0 otherwise.
+$y_{i,j}$: $\sum_{t \in T} x^t_{i,j}$, a variable that indicates whether edge $(i, j)$ is connected regardless of cable type.
+$f_{i,j}$: Represents the energy flow from node $i$ to node $j$.
+$u_k$: A variable that indicates whether each of the 9 offshore substation candidates is selected. That is, if one substation is selected, its $u_k$ value is 1, otherwise 0
+
 
 ## Balanced Radial
