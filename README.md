@@ -36,5 +36,17 @@ $y_{i,j}$: $\sum_{t \in T} x^t_{i,j}$, a variable that indicates whether edge $(
 $f_{i,j}$: Represents the energy flow from node $i$ to node $j$.  
 $u_k$: A variable that indicates whether each of the 9 offshore substation candidates is selected. That is, if one substation is selected, its $u_k$ value is 1, otherwise 0  
 
+### Constraints  
+(1): The objective function aims to minimize the cable cost.  
+Here, $\sum_{(i,j) \in A} \sum_{t \in T} c^t_{i,j} x^t_{i,j}$ represents the cost between turbines and offshore substations, and $\sum_{k \in V_0} a_k u_k$ represents the cost between offshore substations and onshore substations.  
+(2): Defines the $y_{i,j}$ variable and constrains that only one cable type can be selected.  
+(3): A constraint ensuring that for each turbine, the difference between incoming flow and outgoing flow is preserved as 1. $(P_h = 1, \forall h \in V_T)$  
+(4): A constraint ensuring that flow does not exceed the capacity of installed cables.  
+(5): A constraint ensuring that the number of cables going out from one turbine is 1.  
+(6): A constraint ensuring that there are no cables going out from substations.  
+(7): A constraint ensuring that only one of the 9 substation candidates is selected.  
+(8): A constraint ensuring that cables connecting from turbines to substations do not exceed $u_j, j \in V_0$.  
+That is, if one of the 9 substation candidates is selected, only one cable enters that substation, and there are no cables entering other substation candidates.  
+
 
 ## Balanced Radial
