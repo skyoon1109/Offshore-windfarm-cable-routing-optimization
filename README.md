@@ -1,9 +1,10 @@
 # Offshore wind farm cable routing optimization project
 - Optimized cable routing for large offshore wind farms with Mixed‑Integer Programming (MIP), using Gurobi.
 
-$$
-\min \qquad &\sum_{(i, j) \in A} \sum_{t \in T} c_{i,\, j}^{t} \, x_{i,\, j}^t + \sum_{k \in V_{0}} a_{k} u_{k}\\
-\text{s.t.} \qquad &\sum_{t \in T} x_{i,\, j}^{t} = y_{i,\, j}, \quad \forall (i, j) \in A\\
+
+$$ \min \qquad &\sum_{(i, j) \in A} \sum_{t \in T} c_{i,\, j}^{t} \, x_{i,\, j}^t + \sum_{k \in V_{0}} a_{k} u_{k}$$
+
+$$ \text{s.t.} \qquad &\sum_{t \in T} x_{i,\, j}^{t} = y_{i,\, j}, \quad \forall (i, j) \in A $$
 & \sum_{i \in V : i \ne h} \left( f_{h,\, i} - f_{i,\, h} \right) = P_{h}, \quad \forall h \in V_{T}  \\
 &\sum_{t \in T} k_t \ x_{i,\, j}^{t} \ge f_{i,\, j}, \quad \forall (i, j) \in A \\
 &\sum_{j \in V : j \ne h} y_{h,\, j} = 1, \quad \forall h \in V_{T}  \\
