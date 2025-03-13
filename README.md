@@ -30,7 +30,7 @@ $$f_{i,\, j} \ge 0, \quad (i, j) \in A  $$ **(11)**
 
 $$u_{k} \in \{0, 1 \}, \quad k \in V_{0}  $$ **(12)**
 
-$$a_k = 180 \times dist(k,\ onshore\_sub), \quad k \in V_{0} $$ **(13)**
+$$a_k = 180 \times dist(k,\ onshore \ sub), \quad k \in V_{0} $$ **(13)**
 
 ### 1.2 Decision Variables
 $x^t_{i,j}$: 1 if edge $(i, j)$ is connected with cable type $t$, 0 otherwise.  
