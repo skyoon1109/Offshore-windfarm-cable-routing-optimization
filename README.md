@@ -7,6 +7,8 @@ Branched topology : 10MW_9SUB.ipynb, 10MW_9SUB_no_crossing.ipynb
 
 Balanced radial topology : 10MW_9SUB_str_no_crossing.ipynb
 
+# Model Description
+
 ## 1. Branched topology
 
 ### 1.1 MIP model
