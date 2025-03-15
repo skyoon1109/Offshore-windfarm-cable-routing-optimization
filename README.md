@@ -1,6 +1,7 @@
 # Offshore wind farm cable routing optimization project
 - Optimized cable routing for large offshore wind farms with Mixed‑Integer Programming (MIP), using Gurobi.
 - Considered 2 kinds of topology, "Branch topology" & "Balanced Radial topology"
+- Also considered cable crossing, handled with adding Lazy Constraint during optimization, using callback function.
 
 # Code files
 Branched topology : 10MW_9SUB.ipynb, 10MW_9SUB_no_crossing.ipynb  
